@@ -1,9 +1,16 @@
-print("Are you sure you want to delete all files and install NobleOS? (Y/N)")
+print("Are you sure you want to install NobleOS? (Y/N)")
+
+local repo = "https://raw.githubusercontent.com/NobleHeadquarters/CC-Tweaked/main/NobleOS"
+
+local filesToGrab = {"startup.lua", "lock.lua", "update.lua"}
 
 if string.lower(read()) == "y" then
-    shell.run("delete *")
-    shell.run("copy disk/newStartup.lua startup.lua")
-    shell.run("copy disk/lock.lua lock.lua")
+    for _, fileName in pairs(filesToGrab) do
+        fs.delete(fileName)
+    end
+    for _, fileName in pairs(filesToGrab) do
+        shell.run("wget " .. repo .. "/" .. fileName)
+    end
     shell.run("clear")
     print("Completed install!")
     sleep(1)
