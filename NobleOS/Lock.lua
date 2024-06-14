@@ -13,9 +13,9 @@ while true do
     local typed = read("*")
     if typed == Passphrase then
         print("Successfully logged in.")
+        os.pullEvent = oldPull
         sleep(1)
         shell.run("clear")
-        os.pullEvent = oldPull
         break
     else
         print("Please try again.")
