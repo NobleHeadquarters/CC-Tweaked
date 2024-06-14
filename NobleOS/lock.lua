@@ -1,6 +1,6 @@
 local Passphrase = ""
 
-oldpull = os.pullEvent
+oldPull = os.pullEvent
 os.pullEvent = os.pullEventRaw
 
 local function reset()
