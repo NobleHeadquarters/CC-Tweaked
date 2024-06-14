@@ -15,7 +15,6 @@ while true do
         print("Successfully logged in.")
         sleep(1)
         shell.run("clear")
-        shell.run("shell")
         os.pullEvent = oldPull
         break
     else
