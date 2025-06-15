@@ -2,7 +2,7 @@ local reactor = peripheral.wrap("back")
 
 while true do
     sleep(0.5)
-    if reactor.isFormed() and reactor.getFuel() > 0 then
+    if reactor.isFormed() and reactor.getFuel()[2] > 0 then
         if reactor.getDamagePercent() > 0 then
             scram()
         else
