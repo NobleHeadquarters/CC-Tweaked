@@ -1,12 +1,18 @@
 local reactor = peripheral.wrap("back")
+local monitor = peripheral.find("monitor")
+
+term.redirect(monitor)
+monitor.setTextScale(0.5)
 
 while true do
     sleep(0.5)
-    if reactor.isFormed() and reactor.getFuel()[2] > 0 then
+    if reactor.isFormed() and reactor.getFuel()[amount] > 0 then
         if reactor.getDamagePercent() > 0 then
             scram()
         else
-            reactor.activate()
+            if not reactor.getStatus() then
+                reactor.activate()
+            end
         end
     else
         scram()
