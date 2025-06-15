@@ -1,0 +1,4 @@
+local p = peripheral.wrap("back")
+for index, fName in pairs(p) do
+    print(fName)
+end
