@@ -18,7 +18,7 @@ end
 while true do
     sleep(0.5)
     if reactor.isFormed() and reactor.getFuel()["amount"] > 0 then
-        if (reactor.getDamagePercent() > 0 or reactor.getTemperature() > 1000) and not reactor.getStatus() then
+        if (reactor.getDamagePercent() > 0 or reactor.getTemperature() > 1000) and reactor.getStatus() then
             scram()
         else
             if not reactor.getStatus() then
