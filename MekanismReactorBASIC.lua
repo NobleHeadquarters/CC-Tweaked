@@ -7,7 +7,9 @@ monitor.clear()
 
 local function scram()
     print("Attempting to SCRAM!")
-    local success = pcall(reactor.scram())
+    local success = pcall(function()
+            reactor.scram()
+    end)
     if success then
         print("Successfully initiated SCRAM!")
     else
