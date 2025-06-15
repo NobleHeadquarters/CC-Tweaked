@@ -23,7 +23,7 @@ while true do
         if (reactor.getDamagePercent() > 0 or reactor.getTemperature() > 1000) and reactor.getStatus() then
             scram()
         else
-            if not reactor.getStatus() then
+            if not reactor.getStatus() and reactor.getDamagePercent() == 0 and reactor.getTemperature() < 600 then
                 reactor.activate()
             end
         end
