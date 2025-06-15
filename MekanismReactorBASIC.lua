@@ -3,6 +3,7 @@ local monitor = peripheral.find("monitor")
 
 term.redirect(monitor)
 monitor.setTextScale(0.5)
+monitor.clear()
 
 while true do
     sleep(0.5)
