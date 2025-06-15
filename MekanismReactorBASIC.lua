@@ -5,10 +5,20 @@ term.redirect(monitor)
 monitor.setTextScale(0.5)
 monitor.clear()
 
+local function scram()
+    print("Attempting to SCRAM!")
+    local success = pcall(reactor.scram())
+    if success then
+        print("Successfully initiated SCRAM!")
+    else
+        print("FAILED TO INITIATE SCRAM!")
+    end
+end
+
 while true do
     sleep(0.5)
     if reactor.isFormed() and reactor.getFuel()["amount"] > 0 then
-        if reactor.getDamagePercent() > 0 then
+        if (reactor.getDamagePercent() > 0 or reactor.getTemperature() > 1000) and not reactor.getStatus() then
             scram()
         else
             if not reactor.getStatus() then
@@ -17,15 +27,5 @@ while true do
         end
     else
         scram()
-    end
-end
-
-local function scram()
-    print("Attempting to SCRAM!")
-    local success = pcall(reactor.scram())
-    if success then
-        print("Successfully initiated SCRAM!")
-    else
-        print("FAILED TO INITIATE SCRAM!")
     end
 end
