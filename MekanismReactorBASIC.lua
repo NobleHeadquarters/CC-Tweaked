@@ -6,7 +6,7 @@ monitor.setTextScale(0.5)
 
 while true do
     sleep(0.5)
-    if reactor.isFormed() and reactor.getFuel()[amount] > 0 then
+    if reactor.isFormed() and reactor.getFuel()["amount"] > 0 then
         if reactor.getDamagePercent() > 0 then
             scram()
         else
