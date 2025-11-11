@@ -1,9 +1,9 @@
-local p = peripheral.wrap("back")
-local monitor = peripheral.find("monitor")
+local p = peripheral.find("")
 
-term.redirect(monitor)
-monitor.setTextScale(0.5)
-
+local output = {}
 for fName, func in pairs(p) do
-    print(fName)
+    table.insert(output, type(func) .. " | " .. fName .. "\n")
 end
+
+io.output("FunctionFinderLog.txt")
+io.write(table.unpack(output))
