@@ -2,7 +2,7 @@ local p = peripheral.find("geo_scanner")
 
 local args = {...}
 
-local radius = args[1]
+local radius = tonumber(args[1])
 
 local results = p.scan(radius)
 
