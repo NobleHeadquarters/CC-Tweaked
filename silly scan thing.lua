@@ -1,6 +1,6 @@
 local p = peripheral.find("geo_scanner")
 
-local args = ...
+local args = {...}
 
 local radius = args[1]
 
