@@ -30,5 +30,5 @@ for _, result in pairs(results) do
 end
 
 for index, value in pairs(counters) do
-    print("Found " .. value .. " " .. index .. " within " .. radius .. " blocks")
+    print("\nFound " .. value .. " " .. index .. " within " .. radius .. " blocks")
 end
