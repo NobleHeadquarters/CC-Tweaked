@@ -1,12 +1,10 @@
 local p = peripheral.find("geo_scanner")
 
-local args = {...}
-
 local radius = 16
 
-local results = p.scan(radius)
-
 local tag = "minecraft:block/c:ores"
+
+local results = p.scan(radius)
 
 print("cost: " .. p.cost(radius) .. "FE")
 
@@ -25,7 +23,7 @@ for _, result in pairs(results) do
             if exists == false then
                 counters[result.name] = 0
             end
-            counters[result.name] += 1
+            counters[result.name] = counters[result.name] + 1
             break
         end
     end
