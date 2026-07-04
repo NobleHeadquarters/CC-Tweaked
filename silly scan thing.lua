@@ -2,16 +2,19 @@ local p = peripheral.find("geo_scanner")
 
 local args = {...}
 
-local radius = tonumber(args[1])
+local radius = 10
 
 local results = p.scan(radius)
 
 local tag = "c:ores"
 
-for i, v in pairs(results) do
-    for i2, v2 in pairs(v.tags) do
-        if v2 == tag then
-            print(v.name)
+print("cost: " .. p.cost(radius) .. "FE")
+
+for _, result in pairs(results) do
+    if result.name == "minecraft:coal_ore" then
+        for _, tagvalue in pairs(result.tags) do
+            print(tagvalue)
         end
+        break
     end
 end
